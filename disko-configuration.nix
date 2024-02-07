@@ -63,18 +63,18 @@
           };
           nix = {
             type = "zfs_fs";
-            mountpoint = "/nix";
+            mountpoint = "/mnt/nix";
             options.mountpoint = "legacy";
           };
           var = {
             type = "zfs_fs";
-            mountpoint = "/var";
+            mountpoint = "/mnt/var";
             options.mountpoint = "legacy";
             
           };
           home = {
             type = "zfs_fs";
-            mountpoint = "/home";
+            mountpoint = "/mnt/home";
             options = {
               mountpoint = "legacy";
               "com.sun:auto-snapshot" = "true";
