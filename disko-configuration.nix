@@ -59,22 +59,22 @@
         datasets = {
           root = {
             type = "zfs_fs";
-            mountpoint = "/mnt/root";
+            mountpoint = "/root";
           };
           nix = {
             type = "zfs_fs";
-            mountpoint = "/mnt/nix";
+            mountpoint = "/nix";
             options.mountpoint = "legacy";
           };
           var = {
             type = "zfs_fs";
-            mountpoint = "/mnt/var";
+            mountpoint = "/var";
             options.mountpoint = "legacy";
             
           };
           home = {
             type = "zfs_fs";
-            mountpoint = "/mnt/home";
+            mountpoint = "/home";
             options = {
               mountpoint = "legacy";
               "com.sun:auto-snapshot" = "true";
