@@ -20,7 +20,7 @@
               size = "38G";
               content = {
                 type = "swap";
-                resumDevice = true # resume from hibernation from this device
+                resumeDevice = true; # resume from hibernation from this device
               };
             };
             zfs = {
@@ -77,9 +77,9 @@
             mountpoint = "/lappool/home";
             options = {
               mountpoint = "legacy";
-              com.sun:auto-snapshot = "true";
+              "com.sun:auto-snapshot" = "true";
               compression = "lz4";
-            }
+            };
           };
         };
       };
