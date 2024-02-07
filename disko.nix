@@ -13,7 +13,7 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountpoint = "/mnt/boot";
+                mountpoint = "/boot";
               };
             };
             swap = {
