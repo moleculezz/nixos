@@ -59,7 +59,7 @@
         datasets = {
           root = {
             type = "zfs_fs";
-            mountpoint = "/root";
+            mountpoint = "/";
           };
           nix = {
             type = "zfs_fs";
