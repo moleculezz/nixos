@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
-      ./disko-configuration.nix
     ];
 
   nix = {
@@ -95,8 +93,6 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
-    hyprland
-    alacritty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -112,7 +108,7 @@
     xwayland.enable = true;
   };
 
-  programs.alacritty.enable = true;
+  # programs.alacritty.enable = true;
 
   # List services that you want to enable:
 
