@@ -13,7 +13,7 @@
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
-      inherit system
+      inherit system;
 
       config = {
         allowUnfree = true;
@@ -24,7 +24,7 @@
   {
 
     nixosConfigurations = {
-      myNixos = nixpkgs.lib.nixosSystem {
+      gnix = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system; };
 
         modules = [
