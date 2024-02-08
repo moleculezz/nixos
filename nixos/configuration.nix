@@ -82,11 +82,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "disk" "networkmanager" ]; # Enable ‘sudo’ for the user.
     hashedPassword = "$y$j9T$PZq21kAixamol/E5Vch/G0$vWW985xUTzm1uyY3oXzebs7VhvbFB1oKn/XIGs9kdaA";
-    packages = with pkgs; [
-      firefox
-      tree
-    ];
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -108,7 +106,11 @@
     xwayland.enable = true;
   };
 
-  # programs.alacritty.enable = true;
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "gd" ];
+  };
 
   # List services that you want to enable:
 

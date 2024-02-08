@@ -11,7 +11,7 @@
 
     neofetch
     fzf # A command-line fuzzy finder
-
+    firefox
   ];
 
   # basic configuration of git, please change to your own
