@@ -14,6 +14,10 @@
     firefox
   ];
 
+  xresources.properties = {
+    "Xcursor.size" = 24;
+  };
+
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;

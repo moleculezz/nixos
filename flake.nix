@@ -11,11 +11,13 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master"; 
   };
 
 
 
-  outputs = { self, nixpkgs, disko, home-manager }:
+  outputs = { self, nixpkgs, disko, home-manager, nixos-hardware }:
 
   let 
     system = "x86_64-linux";
@@ -35,6 +37,7 @@
         ./nixos/configuration.nix
         disko.nixosModules.disko
         ./nixos/disko-configuration.nix
+        nixos-hardware.nixosModules.framework-13-7040-amd
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
