@@ -12,12 +12,19 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master"; 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # Hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    }; 
   };
 
 
 
-  outputs = { self, nixpkgs, disko, home-manager, nixos-hardware }:
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixos-hardware, ... }:
 
   let 
     system = "x86_64-linux";
@@ -31,19 +38,28 @@
 
     nixosConfigurations = {
       gnix = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
+        specialArgs = { 
+	  inherit system;
+          inherit inputs;
+        };
 
         modules = [
         ./nixos/configuration.nix
+        nixos-hardware.nixosModules.framework-13-7040-amd
+        
         disko.nixosModules.disko
         ./nixos/disko-configuration.nix
-        nixos-hardware.nixosModules.framework-13-7040-amd
+
         home-manager.nixosModules.home-manager {
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+          };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           
           # TODO make username dynamic
-          home-manager.users.gd = import ./nixos/home.nix;
+          home-manager.users.gd = import ./nixos;
+
         }
         ];
       };
