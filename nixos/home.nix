@@ -12,6 +12,8 @@
     neofetch
     fzf # A command-line fuzzy finder
     firefox
+    font-awesome
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   xresources.properties = {
