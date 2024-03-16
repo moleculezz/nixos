@@ -5,6 +5,7 @@
 { config, pkgs, inputs, ... }:
 
 {
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -59,16 +60,39 @@
     # keyMap = "us";
     useXkbConfig = true; # use xkb.options in tty.
   };
+  
+  fonts.packages = with pkgs; [
+    #(nerdfonts.override { fonts = [ "Symbols Nerd Font" ]; })
+    jetbrains-mono
+  ];
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
+
+  services.xserver = {
+    enable = true;
+    xkb = {
+      variant = "";
+      layout = "us";
+    };
+
+    libinput.enable = true;
+
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+      wayland.enable = true;
+      theme = "sugar-catppuccin";
+    };
+  };
 
   # Enable pipewire
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
+    wireplumber.enable = true;
     alsa.enable = true;
-    # alsa.support32bit = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
   };
   
@@ -91,6 +115,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.mutableUsers = false;
   users.users.gd = {
+    description = "GD";
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "disk" "networkmanager" ]; # Enable ‘sudo’ for the user.
     hashedPassword = "$y$j9T$PZq21kAixamol/E5Vch/G0$vWW985xUTzm1uyY3oXzebs7VhvbFB1oKn/XIGs9kdaA";
@@ -103,6 +128,10 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
+    inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
+    cinny-desktop
+    unzip
+    exfatprogs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -117,6 +146,7 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   programs._1password.enable = true;

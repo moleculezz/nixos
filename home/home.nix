@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, stylix, ... }:
 
 {
   home.username = "gd";
@@ -12,9 +12,13 @@
     neofetch
     fzf # A command-line fuzzy finder
     firefox
-    font-awesome
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    cinny-desktop
+    rofi-wayland
   ];
+
+  home.file.".config/hypr/hyprland.conf".source = ../configs/hyprland.conf;
+  #home.file.".config/rofi/config.rasi".source = ../configs/rofi-config.rasi;
+  #home.file.".config/rofi/default_theme.rasi".source = ../configs/rofi-theme.rasi;
 
   xresources.properties = {
     "Xcursor.size" = 24;
@@ -41,6 +45,11 @@
       selection.save_to_clipboard = true;
     };
   };
+
+
+  #stylix = {
+  #  cursor.size = "48";
+  #}; 
 
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version

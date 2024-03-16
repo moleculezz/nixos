@@ -19,12 +19,24 @@
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
-    }; 
+    };
+
+    sddm-sugar-catppuccin = {
+      url = "github:TiagoDamascena/sddm-sugar-catppuccin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.home-manager.follows = "home-manager";
+
+    };
   };
 
 
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixos-hardware, ... }:
+  outputs = inputs@{ nixpkgs, nixos-hardware, disko, home-manager, stylix, ...}:
 
   let 
     system = "x86_64-linux";
@@ -44,11 +56,13 @@
         };
 
         modules = [
-        ./nixos/configuration.nix
         nixos-hardware.nixosModules.framework-13-7040-amd
+        ./nixos/configuration.nix
         
         disko.nixosModules.disko
         ./nixos/disko-configuration.nix
+
+        #stylix.nixosModules.stylix
 
         home-manager.nixosModules.home-manager {
           home-manager.extraSpecialArgs = {
@@ -58,8 +72,13 @@
           home-manager.useUserPackages = true;
           
           # TODO make username dynamic
-          home-manager.users.gd = import ./nixos;
+          home-manager.users.gd = import ./home;
 
+          #stylix.image = pkgs.fetchurl {
+          #  url = "https://raw.githubusercontent.com/moleculezz/dotfiles/main/wallpapers/beach-waves-starry-sky.jpg";
+          #  sha256 = "cb13ae5913247a671fe91c241e339a17260d163a5b8e0cb616d19f143c30cc66";
+          #};
+          #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/zenburn.yaml";
         }
         ];
       };
