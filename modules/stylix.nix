@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 let
-  theme = "monokai";
+  theme = "zenburn";
   opacity = 0.95;
   font-size = 11;
 in
 {
-  stylix.image = ../assets/wallpaper.png;
+  stylix.image = ../wallpapers/beach-waves-starry-sky.jpg;
   stylix.polarity = "dark";
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
 
@@ -23,8 +23,8 @@ in
 
   stylix.fonts = with pkgs; {
     serif = {
-      package = (callPackage ../packages/aleo-fonts.nix { });
-      name = "Aleo";
+      package = noto-fonts-serif;
+      name = "Noto Serif";
     };
 
     sansSerif = {
@@ -33,8 +33,8 @@ in
     };
 
     monospace = {
-      package = maple-mono;
-      name = "Maple Mono";
+      package = jetbrains-mono;
+      name = "JetBrains Mono";
     };
 
     emoji = {
