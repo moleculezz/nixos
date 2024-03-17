@@ -29,7 +29,7 @@
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.home-manager.follows = "home-manager";
+      inputs.home-manager.follows = "home-manager";
 
     };
   };
@@ -63,22 +63,18 @@
         ./nixos/disko-configuration.nix
 
         #stylix.nixosModules.stylix
+        #./modules/stylix.nix
 
-        home-manager.nixosModules.home-manager {
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-          };
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          
-          # TODO make username dynamic
-          home-manager.users.gd = import ./home;
+	home-manager.nixosModules.home-manager {
+        home-manager.extraSpecialArgs = {
+          inherit inputs;
+        };
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        
+        # TODO make username dynamic
+        home-manager.users.gd = import ./home;
 
-          #stylix.image = pkgs.fetchurl {
-          #  url = "https://raw.githubusercontent.com/moleculezz/dotfiles/main/wallpapers/beach-waves-starry-sky.jpg";
-          #  sha256 = "cb13ae5913247a671fe91c241e339a17260d163a5b8e0cb616d19f143c30cc66";
-          #};
-          #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/zenburn.yaml";
         }
         ];
       };
