@@ -2,14 +2,14 @@
   description = "Framework 13 AMD flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Disk manager
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -62,8 +62,8 @@
         disko.nixosModules.disko
         ./nixos/disko-configuration.nix
 
-        #stylix.nixosModules.stylix
-        #./modules/stylix.nix
+        stylix.nixosModules.stylix
+        ./modules/stylix.nix
 
 	home-manager.nixosModules.home-manager {
         home-manager.extraSpecialArgs = {

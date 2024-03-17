@@ -11,7 +11,7 @@
 
       modules-left = [ "hyprland/window" ];
       modules-center = [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
-      modules-right = [ "idle_inhibitor" "battery" "tray" ];
+      modules-right = [ "idle_inhibitor" "custom/notification" "battery" "tray" ];
       "hyprland/workspaces" = {
       	format = "{icon}";
       	format-icons = {
@@ -80,25 +80,25 @@
         };
         tooltip = "true";
       };
-      #"custom/notification" = {
-      #  tooltip = false;
-      #  format = "{icon} {}";
-      #  format-icons = {
-      #    notification = "<span foreground='red'><sup></sup></span>";
-      #    none = "";
-      #    dnd-notification = "<span foreground='red'><sup></sup></span>";
-      #    dnd-none = "";
-      #    inhibited-notification = "<span foreground='red'><sup></sup></span>";
-      #    inhibited-none = "";
-      #    dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-      #    dnd-inhibited-none = "";
-      # 	};
-      #  return-type = "json";
-      #  exec-if = "which swaync-client";
-      #  exec = "swaync-client -swb";
-      #  on-click = "task-waybar";
-      #  escape = true;
-      #};
+      "custom/notification" = {
+        tooltip = false;
+        format = "{icon} {}";
+        format-icons = {
+          notification = "<span foreground='red'><sup></sup></span>";
+          none = "";
+          dnd-notification = "<span foreground='red'><sup></sup></span>";
+          dnd-none = "";
+          inhibited-notification = "<span foreground='red'><sup></sup></span>";
+          inhibited-none = "";
+          dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+          dnd-inhibited-none = "";
+       	};
+        return-type = "json";
+        exec-if = "which swaync-client";
+        exec = "swaync-client -swb";
+        on-click = "task-waybar";
+        escape = true;
+      };
       "battery" = {
         states = {
           warning = 30;

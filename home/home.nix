@@ -14,15 +14,15 @@
     firefox
     cinny-desktop
     rofi-wayland
+    cliphist
+    swaynotificationcenter
   ];
+
+  #stylix.image = ./wallpapers/beach-waves-starry-sky.jpg;
 
   home.file.".config/hypr/hyprland.conf".source = ../configs/hyprland.conf;
   #home.file.".config/rofi/config.rasi".source = ../configs/rofi-config.rasi;
   #home.file.".config/rofi/default_theme.rasi".source = ../configs/rofi-theme.rasi;
-
-  xresources.properties = {
-    "Xcursor.size" = 24;
-  };
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -37,19 +37,10 @@
     # custom settings
     settings = {
       env.TERM = "xterm-256color";
-      font = {
-        size = 12;
-        draw_bold_text_with_bright_colors = true;
-      };
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
     };
   };
-
-
-  #stylix = {
-  #  cursor.size = "48";
-  #}; 
 
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version

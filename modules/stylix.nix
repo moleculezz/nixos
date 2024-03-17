@@ -23,7 +23,7 @@ in
 
   stylix.fonts = with pkgs; {
     serif = {
-      package = noto-fonts-serif;
+      package = noto-fonts;
       name = "Noto Serif";
     };
 

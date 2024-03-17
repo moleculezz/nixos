@@ -62,7 +62,7 @@
   };
   
   fonts.packages = with pkgs; [
-    #(nerdfonts.override { fonts = [ "Symbols Nerd Font" ]; })
+    (nerdfonts.override { fonts = [ "Hack" ]; })
     jetbrains-mono
   ];
 
