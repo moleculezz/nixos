@@ -36,45 +36,43 @@
 
 
 
-  outputs = inputs@{ nixpkgs, nixos-hardware, disko, home-manager, stylix, hyprland, ...}:
+  outputs = { nixpkgs, nixos-hardware, disko, home-manager, stylix, hyprland, ...}@inputs:
 
   let 
-    system = "x86_64-linux";
-
-    pkgs = import nixpkgs {
-      inherit system;
+    systemSettings = {
+      system = "x86_64-linux";
+      hostname = "gnix";
     };
 
+    userSettings = {
+      username = "gd";
+      name = "GD";
+      homeDir = "/home/${userSettings.username}";
+    };
+
+    specialArgs = inputs // { inherit systemSettings; inherit userSettings; };
   in
   {
 
     nixosConfigurations = {
       gnix = nixpkgs.lib.nixosSystem {
-        specialArgs = { 
-	  inherit system;
-          inherit inputs;
-        };
+        specialArgs = specialArgs;
+        system = systemSettings.system;
 
         modules = [
-          nixos-hardware.nixosModules.framework-13-7040-amd
-          ./nixos/configuration.nix
+          ./hosts/${systemSettings.hostname}
         
-          disko.nixosModules.disko
-          ./nixos/disko-configuration.nix
-
           stylix.nixosModules.stylix
-          ./modules/stylix.nix
+          ./nixosModules
 
 	  home-manager.nixosModules.home-manager {
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
+            home-manager = {
+              extraSpecialArgs = specialArgs;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${userSettings.username} = import ./homeManagerModules;
             };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
         
-            # TODO make username dynamic
-            home-manager.users.gd = import ./home;
-
           }
         ];
       };

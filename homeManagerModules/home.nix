@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stylix, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.username = "gd";
@@ -18,9 +18,9 @@
     swaynotificationcenter
   ];
 
-  home.file.".config/hypr/hyprland.conf".source = ../configs/hyprland.conf;
-  #home.file.".config/rofi/config.rasi".source = ../configs/rofi-config.rasi;
-  #home.file.".config/rofi/default_theme.rasi".source = ../configs/rofi-theme.rasi;
+  home.file.".config/hypr/hyprland.conf".source = ../dotfiles/hyprland.conf;
+  #home.file.".config/rofi/config.rasi".source = ../dotfiles/rofi-config.rasi;
+  #home.file.".config/rofi/default_theme.rasi".source = ../dotfiles/rofi-theme.rasi;
 
   # basic configuration of git, please change to your own
   programs.git = {

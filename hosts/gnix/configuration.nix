@@ -2,15 +2,9 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, hyprland, sddm-sugar-catppuccin, ... }:
 
 {
-
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   # This displays the changes made when doing a nix rebuild switch
   system.activationScripts.diff = {
     supportsDryActivation = true;
@@ -81,7 +75,7 @@
     libinput.enable = true;
   };
 
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
     wayland.enable = true;
@@ -127,7 +121,7 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
-    inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
+    sddm-sugar-catppuccin.packages.${pkgs.system}.default
     cinny-desktop
     unzip
     exfatprogs
@@ -144,7 +138,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
