@@ -50,7 +50,7 @@
       homeDir = "/home/${userSettings.username}";
     };
 
-    specialArgs = inputs // { inherit systemSettings; inherit userSettings; };
+    specialArgs = { inherit inputs; inherit systemSettings; inherit userSettings; };
   in
   {
 
@@ -60,20 +60,7 @@
         system = systemSettings.system;
 
         modules = [
-          ./hosts/${systemSettings.hostname}
-        
-          stylix.nixosModules.stylix
-          ./nixosModules
-
-	  home-manager.nixosModules.home-manager {
-            home-manager = {
-              extraSpecialArgs = specialArgs;
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${userSettings.username} = import ./homeManagerModules;
-            };
-        
-          }
+          ./hosts/gnix
         ];
       };
     };
