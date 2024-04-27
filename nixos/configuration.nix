@@ -11,6 +11,15 @@
       ./hardware-configuration.nix
     ];
 
+  # This displays the changes made when doing a nix rebuild switch
+  system.activationScripts.diff = {
+    supportsDryActivation = true;
+    text = ''
+      ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff \
+        /run/current-system "$systemConfig"
+    '';
+  };
+
   nix = {
     package = pkgs.nixFlakes;
 
@@ -49,10 +58,6 @@
   # Set your time zone.
   time.timeZone = "America/Aruba";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -66,9 +71,6 @@
     jetbrains-mono
   ];
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
   services.xserver = {
     enable = true;
     xkb = {
@@ -77,13 +79,14 @@
     };
 
     libinput.enable = true;
+  };
 
-    displayManager.sddm = {
-      enable = true;
-      autoNumlock = true;
-      wayland.enable = true;
-      theme = "sugar-catppuccin";
-    };
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    autoNumlock = true;
+    wayland.enable = true;
+    theme = "sugar-catppuccion";
+    
   };
 
   # Enable pipewire
@@ -98,12 +101,8 @@
   
   services.fwupd.enable = true;
 
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # Enable sound.
   # sound.enable = true;
@@ -132,6 +131,7 @@
     cinny-desktop
     unzip
     exfatprogs
+    pavucontrol
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

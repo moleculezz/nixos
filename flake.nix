@@ -36,7 +36,7 @@
 
 
 
-  outputs = inputs@{ nixpkgs, nixos-hardware, disko, home-manager, stylix, ...}:
+  outputs = inputs@{ nixpkgs, nixos-hardware, disko, home-manager, stylix, hyprland, ...}:
 
   let 
     system = "x86_64-linux";
@@ -56,29 +56,28 @@
         };
 
         modules = [
-        nixos-hardware.nixosModules.framework-13-7040-amd
-        ./nixos/configuration.nix
+          nixos-hardware.nixosModules.framework-13-7040-amd
+          ./nixos/configuration.nix
         
-        disko.nixosModules.disko
-        ./nixos/disko-configuration.nix
+          disko.nixosModules.disko
+          ./nixos/disko-configuration.nix
 
-        stylix.nixosModules.stylix
-        ./modules/stylix.nix
+          stylix.nixosModules.stylix
+          ./modules/stylix.nix
 
-	home-manager.nixosModules.home-manager {
-        home-manager.extraSpecialArgs = {
-          inherit inputs;
-        };
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
+	  home-manager.nixosModules.home-manager {
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
         
-        # TODO make username dynamic
-        home-manager.users.gd = import ./home;
+            # TODO make username dynamic
+            home-manager.users.gd = import ./home;
 
-        }
+          }
         ];
       };
     };
-
   };
 }
