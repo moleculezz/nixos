@@ -18,8 +18,6 @@
     swaynotificationcenter
   ];
 
-  #stylix.image = ./wallpapers/beach-waves-starry-sky.jpg;
-
   home.file.".config/hypr/hyprland.conf".source = ../configs/hyprland.conf;
   #home.file.".config/rofi/config.rasi".source = ../configs/rofi-config.rasi;
   #home.file.".config/rofi/default_theme.rasi".source = ../configs/rofi-theme.rasi;

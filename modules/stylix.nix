@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 let
-  theme = "zenburn";
+  theme = "catppuccin-macchiato";
   opacity = 0.95;
-  font-size = 11;
+  font-size = 8;
 in
 {
   stylix.image = ../wallpapers/beach-waves-starry-sky.jpg;
