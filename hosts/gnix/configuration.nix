@@ -79,7 +79,7 @@
     enable = true;
     autoNumlock = true;
     wayland.enable = true;
-    theme = "sugar-catppuccion";
+    theme = "sugar-catppuccin";
     
   };
 
