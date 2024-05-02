@@ -61,8 +61,17 @@
   };
   
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" ]; })
+    noto-fonts
+
     jetbrains-mono
+
+    (nerdfonts.override {
+      fonts = [
+        "NerdFontsSymbolsOnly"
+        "JetBrainsMono"
+      ];
+    })
+
   ];
 
   services.xserver = {
