@@ -131,10 +131,10 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
     inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
-    cinny-desktop
+    cinny-desktop # Matrix client
     unzip
-    exfatprogs
-    pavucontrol
+    exfatprogs # Add this to format drives with exFAT fs.
+    pavucontrol # Add this to manage audio controls.
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
