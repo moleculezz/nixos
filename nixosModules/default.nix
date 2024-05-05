@@ -4,5 +4,7 @@
     [ 
       # Add styling & theming
       ./stylix.nix
+      ./hyprland
+      ./fonts
     ];
 }

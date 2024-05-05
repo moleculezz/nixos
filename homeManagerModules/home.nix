@@ -13,12 +13,8 @@
     fzf # A command-line fuzzy finder
     firefox
     cinny-desktop
-    rofi-wayland
-    cliphist
-    swaynotificationcenter
   ];
 
-  home.file.".config/hypr/hyprland.conf".source = ../dotfiles/hyprland.conf;
   #home.file.".config/rofi/config.rasi".source = ../dotfiles/rofi-config.rasi;
   #home.file.".config/rofi/default_theme.rasi".source = ../dotfiles/rofi-theme.rasi;
 

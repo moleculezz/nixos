@@ -21,13 +21,6 @@
       experimental-features = nix-command flakes
     '';
 
-    settings = {
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      ];
-    };
-
     gc = {
       automatic = true;
       dates = "weekly";
@@ -60,20 +53,6 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
   
-  fonts.packages = with pkgs; [
-    noto-fonts
-
-    jetbrains-mono
-
-    (nerdfonts.override {
-      fonts = [
-        "NerdFontsSymbolsOnly"
-        "JetBrainsMono"
-      ];
-    })
-
-  ];
-
   services.xserver = {
     enable = true;
     xkb = {
@@ -84,13 +63,6 @@
     libinput.enable = true;
   };
 
-  services.displayManager.sddm = {
-    enable = true;
-    autoNumlock = true;
-    wayland.enable = true;
-    theme = "sugar-catppuccin";
-    
-  };
 
   # Enable pipewire
   security.rtkit.enable = true;
@@ -130,11 +102,11 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
-    inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
     cinny-desktop # Matrix client
     unzip
     exfatprogs # Add this to format drives with exFAT fs.
     pavucontrol # Add this to manage audio controls.
+    brightnessctl # Add this to control device brightness 
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -144,13 +116,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    xwayland.enable = true;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  };
 
   programs._1password.enable = true;
   programs._1password-gui = {
