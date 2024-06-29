@@ -17,8 +17,8 @@ in
   };
 
   stylix.cursor = with pkgs; {
-    package = phinger-cursors;
-    name = "phinger-cursors";
+    package = capitaine-cursors-themed;
+    name = "Capitaine Cursors (Palenight)";
     size = 24;
   };
 
