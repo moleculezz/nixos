@@ -82,6 +82,8 @@
   };
   services.blueman.enable = true;
   
+  systemd.targets.hibernate.enable = false; #issue with reboot. It hibernates and won't boot up. Fix later
+
   services.fwupd.enable = true;
 
   # Enable CUPS to print documents.
