@@ -111,6 +111,7 @@
     git
     cinny-desktop # Matrix client
     unzip
+    btop
     exfatprogs # Add this to format drives with exFAT fs.
     pavucontrol # Add this to manage audio controls.
     brightnessctl # Add this to control device brightness
