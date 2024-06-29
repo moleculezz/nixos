@@ -113,7 +113,9 @@
     unzip
     exfatprogs # Add this to format drives with exFAT fs.
     pavucontrol # Add this to manage audio controls.
-    brightnessctl # Add this to control device brightness 
+    brightnessctl # Add this to control device brightness
+    playerctl # Add this to control media players play/pause etc.
+    amdgpu_top # Add this to check GPU usage stats.
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
