@@ -36,6 +36,14 @@
     };
   };
 
+  programs.neovim = {
+    enable = true;
+  };
+  home.file.".config/nvim" = {
+    source = ../dotfiles/nvim;
+    recursive = true;
+  };
+
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
