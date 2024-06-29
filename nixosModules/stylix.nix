@@ -6,6 +6,7 @@ let
   font-size = 8;
 in
 {
+  stylix.enable = true;
   stylix.image = ../assets/beach-waves-starry-sky.jpg;
   stylix.polarity = "dark";
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";

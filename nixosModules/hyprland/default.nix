@@ -6,7 +6,8 @@
   };
 
   config = lib.mkIf config.my.hyprland.enable {
-    
+
+    # https://wiki.hyprland.org/Nix/Cachix/
     nix.settings = {
       substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [
@@ -16,10 +17,12 @@
 
     programs.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
+
+    programs.hyprlock.enable = true;
+    services.hypridle.enable = true;
 
     environment.systemPackages = with pkgs; [
       inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
