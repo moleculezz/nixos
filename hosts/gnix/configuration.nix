@@ -109,7 +109,10 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
-    cinny-desktop # Matrix client
+    gcc # Needed for neovim
+    ripgrep # Neovim
+    lsd
+    kdePackages.dolphin
     unzip
     btop
     exfatprogs # Add this to format drives with exFAT fs.

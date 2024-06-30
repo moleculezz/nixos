@@ -32,12 +32,12 @@
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
-      theme = "sugar-catppuccin";  
+      theme = "sugar-catppuccin";
     };
-    
+
     home-manager.users.${userSettings.username} = {
       home.file.".config/hypr/hyprland.conf".source = ../../dotfiles/hyprland.conf;
-      
+
       home.packages = with pkgs; [
         rofi-wayland
         cliphist
