@@ -6,6 +6,7 @@
         device = "/dev/disk/by-id/nvme-SHPP41-1000GM_SJB6N503110206D1F";
         content = {
           type = "gpt";
+
           partitions = {
             boot = {
               size = "1024M";
@@ -16,6 +17,7 @@
                 mountpoint = "/boot";
               };
             };
+
             swap = {
               size = "38G";
               content = {
@@ -23,17 +25,25 @@
                 resumeDevice = true; # resume from hibernation from this device
               };
             };
-            zfs = {
+
+            luks = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "gnix";
+                type = "luks";
+                name = "crypt";
+                extraOpenArgs = [ "--allow-discards" ];
+                passwordFile = "/tmp/secret.key";
+                content = {
+                  type = "zfs";
+                  pool = "gnix";
+                };
               };
             };
           };
         };
       };
     };
+
     zpool = {
       gnix = {
         type = "zpool";
