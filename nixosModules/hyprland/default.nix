@@ -28,6 +28,10 @@
       inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
     ];
 
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+
     services.displayManager.sddm = {
       enable = true;
       autoNumlock = true;
