@@ -14,22 +14,22 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "lappool/root";
+    { device = "gnix/root";
       fsType = "zfs";
     };
  
   fileSystems."/nix" =
-    { device = "lappool/nix";
+    { device = "gnix/nix";
       fsType = "zfs";
     };
 
   fileSystems."/var" =
-    { device = "lappool/var";
+    { device = "gnix/var";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "lappool/home";
+    { device = "gnix/home";
       fsType = "zfs";
     };
 

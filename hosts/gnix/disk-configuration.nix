@@ -27,7 +27,7 @@
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "lappool";
+                pool = "gnix";
               };
             };
           };
@@ -35,18 +35,14 @@
       };
     };
     zpool = {
-      lappool = {
+      gnix = {
         type = "zpool";
-        
+
         rootFsOptions = {
           mountpoint = "none";
-          encryption = "aes-256-gcm";
-          keyformat = "passphrase";
-          keylocation = "prompt";
           acltype = "posixacl";
           canmount = "off";
           dnodesize = "auto";
-          normalization = "formD";
           relatime = "on";
           xattr = "sa";
         };
@@ -61,17 +57,19 @@
             type = "zfs_fs";
             mountpoint = "/";
           };
+
           nix = {
             type = "zfs_fs";
             mountpoint = "/nix";
             options.mountpoint = "legacy";
           };
+
           var = {
             type = "zfs_fs";
             mountpoint = "/var";
             options.mountpoint = "legacy";
-            
           };
+
           home = {
             type = "zfs_fs";
             mountpoint = "/home";

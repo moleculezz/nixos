@@ -34,7 +34,6 @@
 
   # Add ZFS support
   boot.supportedFilesystems = ["zfs"];
-  boot.zfs.requestEncryptionCredentials = true;
   networking.hostId = "06919496";
 
   networking.hostName = "gnix"; # Define your hostname.
