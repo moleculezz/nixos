@@ -36,6 +36,11 @@
   boot.supportedFilesystems = ["zfs"];
   networking.hostId = "06919496";
 
+  # Add LUKS & Yubikey
+  # https://discourse.nixos.org/t/fde-using-systemd-cryptenroll-with-fido2-key/47762/1
+  # https://research.kudelskisecurity.com/2023/12/14/luks-disk-encryption-with-fido2/
+  
+
   networking.hostName = "gnix"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
