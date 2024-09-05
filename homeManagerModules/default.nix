@@ -3,7 +3,7 @@
 {
   imports = [
     ./home.nix
-    ./waybar.nix
-    ./rofi.nix
+    #./waybar.nix
+    #./rofi.nix
   ];
 }

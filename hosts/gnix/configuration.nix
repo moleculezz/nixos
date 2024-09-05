@@ -62,6 +62,8 @@
   };
   services.libinput.enable = true;
 
+  services.desktopManager.plasma6.enable = true;
+
 
   # Enable pipewire
   security.rtkit.enable = true;
@@ -80,7 +82,7 @@
     settings.Policy.AutoEnable = "true";
     settings.General.Enable = "Source,Sink,Media,Socket";
   };
-  services.blueman.enable = true;
+  #services.blueman.enable = true;
   
   systemd.targets.hibernate.enable = false; #issue with reboot. It hibernates and won't boot up. Fix later
 
@@ -112,13 +114,13 @@
     gcc # Needed for neovim
     ripgrep # Neovim
     lsd
-    kdePackages.dolphin
+    #kdePackages.dolphin
     unzip
     btop
     exfatprogs # Add this to format drives with exFAT fs.
-    pavucontrol # Add this to manage audio controls.
-    brightnessctl # Add this to control device brightness
-    playerctl # Add this to control media players play/pause etc.
+    #pavucontrol # Add this to manage audio controls.
+    #brightnessctl # Add this to control device brightness
+    #playerctl # Add this to control media players play/pause etc.
     amdgpu_top # Add this to check GPU usage stats.
 
     cryptsetup #LUKS setup

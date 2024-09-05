@@ -12,7 +12,7 @@
     ./hardware-configuration.nix
 
     # Configure system wide theme
-    inputs.stylix.nixosModules.stylix
+    #inputs.stylix.nixosModules.stylix
 
     ./configuration.nix
 
@@ -28,6 +28,6 @@
     }
   ];
 
-  my.hyprland.enable = true;
-  my.fonts.enable = true;
+  my.hyprland.enable = false;
+  my.fonts.enable = false;
 }

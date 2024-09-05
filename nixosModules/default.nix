@@ -3,8 +3,8 @@
   imports =
     [ 
       # Add styling & theming
-      ./stylix.nix
-      ./hyprland
-      ./fonts
+      #./stylix.nix
+      #./hyprland
+      #./fonts
     ];
-}
+  }
