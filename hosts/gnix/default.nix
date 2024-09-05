@@ -28,6 +28,6 @@
     }
   ];
 
-  my.hyprland.enable = false;
-  my.fonts.enable = false;
+  #my.hyprland.enable = false;
+  #my.fonts.enable = false;
 }
