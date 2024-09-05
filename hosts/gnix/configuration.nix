@@ -120,6 +120,10 @@
     brightnessctl # Add this to control device brightness
     playerctl # Add this to control media players play/pause etc.
     amdgpu_top # Add this to check GPU usage stats.
+
+    cryptsetup #LUKS setup
+    yubikey-manager #FIDO2 setup
+    parted
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
