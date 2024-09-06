@@ -12,7 +12,8 @@
     fastfetch
     fzf # A command-line fuzzy finder
     firefox
-    cinny-desktop
+    google-chrome
+    #cinny-desktop
   ];
 
   #home.file.".config/rofi/config.rasi".source = ../dotfiles/rofi-config.rasi;
