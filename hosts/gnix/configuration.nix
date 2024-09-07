@@ -129,27 +129,10 @@
     git
     gcc # Needed for neovim
     ripgrep # Neovim
-    lsd
     #kdePackages.dolphin
-    unzip
-    btop
-    exfatprogs # Add this to format drives with exFAT fs.
     #pavucontrol # Add this to manage audio controls.
     #brightnessctl # Add this to control device brightness
     #playerctl # Add this to control media players play/pause etc.
-    amdgpu_top # Add this to check GPU usage stats.
-
-    libreoffice-qt-fresh # QT version for KDE
-    pdfmixtool # OpenSource pdf merge/split tool
-    xournalpp # OpenSource pdf editor, annotate
-    pdfstudio2023 # NonFree pdf editor, similar to Acrobat
-
-    cryptsetup #LUKS setup
-    yubikey-manager #FIDO2 setup
-    parted
-
-    vlc
-
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

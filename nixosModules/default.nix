@@ -6,5 +6,9 @@
       #./stylix.nix
       #./hyprland
       #./fonts
+      ./utilities.nix
+      ./office.nix
+      ./multimedia.nix
+      ./crypto.nix
     ];
   }
