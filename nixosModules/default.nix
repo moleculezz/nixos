@@ -10,5 +10,6 @@
       ./office.nix
       ./multimedia.nix
       ./crypto.nix
+      ./libvirt.nix
     ];
   }

@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ config, pkgs, userSettings, ... }:
 {
   virtualisation = {
     libvirtd = {
@@ -13,7 +13,7 @@
     spiceUSBRedirection.enable = true;
   };
 
-  users.users.${username}.extraGroups = [ "libvirtd" ];
+  users.users.${userSettings.username}.extraGroups = [ "libvirtd" ];
 
   environment.systemPackages = with pkgs; [
     spice
@@ -25,7 +25,7 @@
   ];
   programs.virt-manager.enable = true;
 
-  home-manager.users.${username} = {
+  home-manager.users.${userSettings.username} = {
     dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = [ "qemu:///system" ];
