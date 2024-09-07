@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, inputs, userSettings, ... }:
+{ config, pkgs, inputs, systemSettings, userSettings, ... }:
 
 {
   # This displays the changes made when doing a nix rebuild switch
@@ -48,7 +48,7 @@
   # };
   #};
 
-  networking.hostName = "gnix"; # Define your hostname.
+  networking.hostName = systemSettings.hostname; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -112,8 +112,8 @@
   # hardware.pulseaudio.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.mutableUsers = false;
-  users.users.gd = {
+  #users.mutableUsers = false;
+  users.users.${userSettings.username} = {
     description = userSettings.name;
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "disk" "networkmanager" ]; # Enable ‘sudo’ for the user.
@@ -146,7 +146,7 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ "gd" ];
+    polkitPolicyOwners = [ userSettings.username ];
   };
 
   # List services that you want to enable:
