@@ -9,7 +9,7 @@
 
           partitions = {
             boot = {
-              size = "1024M";
+              size = "2048M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -26,19 +26,27 @@
               };
             };
 
-            luks = {
+            zfs = {
               size = "100%";
               content = {
-                type = "luks";
-                name = "crypt";
-                extraOpenArgs = [ "--allow-discards" ];
-                passwordFile = "/tmp/secret.key";
-                content = {
-                  type = "zfs";
-                  pool = "gnix";
-                };
+                type = "zfs";
+                pool = "gnix";
               };
             };
+
+            #luks = {
+            # size = "100%";
+            # content = {
+            #   type = "luks";
+            #   name = "crypt";
+            #   extraOpenArgs = [ "--allow-discards" ];
+            #   passwordFile = "/tmp/secret.key";
+            #   content = {
+            #     type = "zfs";
+            #     pool = "gnix";
+            #   };
+            # };
+            #};
           };
         };
       };
