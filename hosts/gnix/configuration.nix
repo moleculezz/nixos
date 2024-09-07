@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, userSettings, ... }:
 
 {
   # This displays the changes made when doing a nix rebuild switch
@@ -114,10 +114,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.mutableUsers = false;
   users.users.gd = {
-    description = "GD";
+    description = userSettings.name;
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "disk" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    hashedPassword = "$y$j9T$PZq21kAixamol/E5Vch/G0$vWW985xUTzm1uyY3oXzebs7VhvbFB1oKn/XIGs9kdaA";
+    initialHashedPassword = "$y$j9T$9DM4/7clQGEAY5SsRjEuu0$56AZgy91xnZtKNAuZYEWAY160SEWHQ26uhka4lCO/LA"; # password is "changeme"
   };
 
   nixpkgs.config.allowUnfree = true;
