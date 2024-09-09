@@ -31,3 +31,4 @@ sudo nixos-rebuild switch --flake .#audioproc1
 # Single GPU passthrough
 
 https://github.com/mike11207/single-gpu-passthrough-amd-gpu/tree/main
+https://github.com/stele95/AMD-Single-GPU-Passthrough
