@@ -39,14 +39,14 @@
   # Add LUKS & Yubikey
   # https://discourse.nixos.org/t/fde-using-systemd-cryptenroll-with-fido2-key/47762/1
   # https://research.kudelskisecurity.com/2023/12/14/luks-disk-encryption-with-fido2/
-  #boot.initrd = {
-  #  systemd.enable = true;  # initrd uses systemd
+  boot.initrd = {
+    systemd.enable = true;  # initrd uses systemd
   #  luks.fido2Support = false;  # because systemd
-  #  luks.devices.${luksName} = {
-  #   device = BLKDEV_HERE;
-  #   crypttabExtraOpts = ["fido2-device=auto"];  # cryptenroll
-  # };
-  #};
+  #  luks.devices.crypt = {
+  #    device = "/dev/disk/by-id/nvme-SHPP41-1000GM_SJB6N503110206D1F";
+  #    crypttabExtraOpts = ["fido2-device=auto"];  # cryptenroll
+  #  };
+  };
 
   networking.hostName = systemSettings.hostname; # Define your hostname.
   # Pick only one of the below networking options.
