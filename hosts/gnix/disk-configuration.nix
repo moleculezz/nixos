@@ -30,7 +30,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "crypt";
+                name = "nvme0n1p3_encrypted";
                 extraOpenArgs = [ "--allow-discards" ];
                 passwordFile = "/tmp/secret.key";
                 content = {
