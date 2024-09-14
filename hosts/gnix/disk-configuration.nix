@@ -26,27 +26,19 @@
               };
             };
 
-            zfs = {
+            luks = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "gnix";
+                type = "luks";
+                name = "crypt";
+                extraOpenArgs = [ "--allow-discards" ];
+                passwordFile = "/tmp/secret.key";
+                content = {
+                  type = "zfs";
+                  pool = "gnix";
+                };
               };
             };
-
-            #luks = {
-            # size = "100%";
-            # content = {
-            #   type = "luks";
-            #   name = "crypt";
-            #   extraOpenArgs = [ "--allow-discards" ];
-            #   passwordFile = "/tmp/secret.key";
-            #   content = {
-            #     type = "zfs";
-            #     pool = "gnix";
-            #   };
-            # };
-            #};
           };
         };
       };
