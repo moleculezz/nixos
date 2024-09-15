@@ -1,7 +1,7 @@
 #!/run/current-system/sw/bin/bash
 
 echo -n "Enter crypto password: "
-read $password
+read password
 
 cd /tmp
 nix run noxpkgs#git --experimental-features 'nix-command flakes' -- clone https://github.com/moleculezz/nixos-config
