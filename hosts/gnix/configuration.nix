@@ -41,11 +41,11 @@
   # https://research.kudelskisecurity.com/2023/12/14/luks-disk-encryption-with-fido2/
   boot.initrd = {
     systemd.enable = true;  # initrd uses systemd
-  #  luks.fido2Support = false;  # because systemd
-  #  luks.devices.crypt = {
-  #    device = "/dev/disk/by-id/nvme-SHPP41-1000GM_SJB6N503110206D1F";
-  #    crypttabExtraOpts = ["fido2-device=auto"];  # cryptenroll
-  #  };
+    luks.fido2Support = false;  # because systemd
+    luks.devices.nvme0n1p3_encrypted = {
+      device = "/dev/disk/by-partlabel/disk-nvme-luks";
+      crypttabExtraOpts = ["fido2-device=auto"];  # cryptenroll
+    };
   };
 
   networking.hostName = systemSettings.hostname; # Define your hostname.

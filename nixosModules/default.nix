@@ -10,7 +10,7 @@
       #./office.nix
       #./multimedia.nix
       #./development.nix
-      #./crypto.nix
+      ./crypto.nix
       #./libvirt.nix
     ];
   }

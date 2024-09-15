@@ -31,7 +31,10 @@
               content = {
                 type = "luks";
                 name = "nvme0n1p3_encrypted";
-                extraOpenArgs = [ "--allow-discards" ];
+                settings = {
+                  allowDiscards = true;
+                };
+                #extraOpenArgs = [ "--allow-discards" ];
                 passwordFile = "/tmp/secret.key";
                 content = {
                   type = "zfs";
