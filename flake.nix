@@ -15,23 +15,22 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Hyprland
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    #hyprland.url = "github:hyprwm/Hyprland";
+    #hyprland-plugins = {
+    #  url = "github:hyprwm/hyprland-plugins";
+    #  inputs.hyprland.follows = "hyprland";
+    #};
 
-    sddm-sugar-catppuccin = {
-      url = "github:TiagoDamascena/sddm-sugar-catppuccin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #sddm-sugar-catppuccin = {
+    #  url = "github:TiagoDamascena/sddm-sugar-catppuccin";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-
-    };
+    #stylix = {
+    #  url = "github:danth/stylix";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #  inputs.home-manager.follows = "home-manager";
+    #};
   };
 
 
