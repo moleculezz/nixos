@@ -1,5 +1,10 @@
 {pkgs, ...}:
 
+#https://github.com/nrbray/nixos-configuration/blob/main/ni
+#https://github.com/erictossell/nixflakes/blob/main/sh/build.sh
+#https://github.com/JManch/nixos/blob/main/hosts/installer/default.nix
+
+
 let 
   installScript = pkgs.writeShellApplication {
     name = "install-local";
