@@ -28,6 +28,8 @@
     };
   };
 
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -59,7 +61,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
+    font = "Lat2-Terminus16.psfu.gz";
     # keyMap = "us";
     useXkbConfig = true; # use xkb.options in tty.
   };
