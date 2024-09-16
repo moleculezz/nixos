@@ -7,10 +7,10 @@
       #./hyprland
       #./fonts
       ./utilities.nix
-      #./office.nix
-      #./multimedia.nix
-      #./development.nix
+      ./office.nix
+      ./multimedia.nix
+      ./development.nix
       ./crypto.nix
-      #./libvirt.nix
+      ./libvirt.nix
     ];
   }

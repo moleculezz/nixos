@@ -35,7 +35,7 @@
 
 
 
-  outputs = { nixpkgs, nixos-hardware, disko, home-manager, stylix, hyprland, ...}@inputs:
+  outputs = { nixpkgs, nixos-hardware, disko, home-manager, ...}@inputs:
 
   let 
     systemSettings = {
