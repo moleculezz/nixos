@@ -8,6 +8,8 @@ nix run nixpkgs#git --experimental-features 'nix-command flakes' -- clone https:
 cd nixos-config
 nix run nixpkgs#git --experimental-features 'nix-command flakes' -- checkout kde-luks
 echo -n "$password" > /tmp/secret.key
-#sudo nix run 'github:nix-community/disko#disko-install' --experimental-features 'nix-command flakes' -- --write-efi-boot-entries --flake '/tmp/nixos-config#gnix' --disk nvme /dev/nvme0n1
-#sudo systemd-cryptenroll --fido2-device=auto /dev/nvme0n1p3
+sudo nix run 'github:nix-community/disko#disko-install' --experimental-features 'nix-command flakes' -- --write-efi-boot-entries --flake '/tmp/nixos-config#gnix' --disk nvme /dev/nvme0n1
 
+# Do this on first boot.
+#sudo systemd-cryptenroll --fido2-device=auto /dev/nvme0n1p3
+#passwd
