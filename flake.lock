@@ -72,12 +72,29 @@
         "type": "github"
       }
     },
+    "pdfstudio-fork": {
+      "locked": {
+        "lastModified": 1714988653,
+        "narHash": "sha256-ltA0Hbwf2IiykWNZSrJvk/KjwLvURuoSVpz49MDTpd4=",
+        "owner": "daudi",
+        "repo": "nixpkgs",
+        "rev": "2ec46d71212e0b74c9616f13c9482d9093cc2b65",
+        "type": "github"
+      },
+      "original": {
+        "owner": "daudi",
+        "ref": "pdfstudio2024b",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "pdfstudio-fork": "pdfstudio-fork"
       }
     }
   },

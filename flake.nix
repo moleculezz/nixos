@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    pdfstudio-fork.url = "github:daudi/nixpkgs/pdfstudio2024b";
 
     # Disk manager
     disko.url = "github:nix-community/disko";
@@ -35,7 +36,7 @@
 
 
 
-  outputs = { nixpkgs, nixos-hardware, disko, home-manager, ...}@inputs:
+  outputs = { nixpkgs, nixos-hardware, disko, home-manager, pdfstudio-fork, ...}@inputs:
 
   let 
     systemSettings = {
@@ -50,6 +51,14 @@
     };
 
     specialArgs = { inherit inputs; inherit systemSettings; inherit userSettings; };
+
+    overlay-pdfstudio = final: prev: {
+      fork = import pdfstudio-fork {
+        localSystem = { system = systemSettings.system; };
+        config.allowUnfree = true;
+      };
+    };
+
   in
   {
 
@@ -59,6 +68,7 @@
         system = systemSettings.system;
 
         modules = [
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-pdfstudio ]; })
           ./hosts/gnix
         ];
       };
