@@ -50,6 +50,9 @@
     };
   };
 
+  hardware.openrazer.enable = true;
+  hardware.openrazer.users = [ userSettings.username ];
+
   networking.hostName = systemSettings.hostname; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -129,6 +132,7 @@
     git
     gcc # Needed for neovim
     ripgrep # Neovim
+    razergenie
     #kdePackages.dolphin
     #pavucontrol # Add this to manage audio controls.
     #brightnessctl # Add this to control device brightness
