@@ -7,5 +7,6 @@
     signal-desktop
     obsidian
     fork.pdfstudio2024 # NonFree pdf editor, similar to Acrobat
+    speedcrunch
   ];
 }
